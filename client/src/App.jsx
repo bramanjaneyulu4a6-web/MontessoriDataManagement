@@ -1221,7 +1221,7 @@ if (!isLoggedIn) {
 
   {/* SUBTITLE */}
   <p className="text-blue-200 text-[10px] uppercase tracking-[0.25em] mt-2 font-bold">
-     Digital Management System
+     Data Management System
   </p>
 </div>
 
