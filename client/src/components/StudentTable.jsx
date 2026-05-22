@@ -7652,6 +7652,9 @@ const PreviewField = ({
   </div>
 );
 const StudentTable = () => {
+
+
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [students, setStudents] = useState([]);
   const [viewingTC, setViewingTC] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -7675,9 +7678,10 @@ const [activeFilter, setActiveFilter] = useState("all");
 
 const fetchDashboardCounts = async () => {
   try {
-    const response = await axios.get(
-      "http://localhost:5000/api/students/dashboard-counts"
-    );
+  const response = await axios.get(`${baseURL}/api/students/dashboard-counts`);
+    // const response = await axios.get(
+    //   "http://localhost:5000/api/students/dashboard-counts"
+    // );
 
     setDashboardCounts(response.data);
 
@@ -7691,7 +7695,8 @@ const fetchDashboardCounts = async () => {
   setLoading(true);
 
   try {
-    let url = `http://localhost:5000/api/students/search?name=${query}`;
+   let url = `${baseURL}/api/students/search?name=${query}`;
+    // let url = `http://localhost:5000/api/students/search?name=${query}`;
 
     if (pendingType) {
       url += `&pending=${pendingType}`;
@@ -7722,10 +7727,11 @@ const fetchDashboardCounts = async () => {
 const handleOpenProfile = async (student) => {
   try {
     // Fetch latest student record from DB
-    const response = await axios.get(
-      `http://localhost:5000/api/students/${student._id}`
-    );
-
+    // const response = await axios.get(
+      
+    //   `http://localhost:5000/api/students/${student._id}`
+    // );
+const response = await axios.get(`${baseURL}/api/students/${student._id}`);
     const freshStudent = JSON.parse(
       JSON.stringify(response.data)
     );
@@ -7777,7 +7783,8 @@ const handleFileChange = async (e, fieldName) => {
 
   try {
     const response = await axios.post(
-  `http://localhost:5000/api/students/upload/${editData._id}/${fieldName}`,
+  `${baseURL}/api/students/upload/${editData._id}/${fieldName}`,
+      // `http://localhost:5000/api/students/upload/${editData._id}/${fieldName}`,
   formData
 );
 
@@ -7870,8 +7877,7 @@ fetchDashboardCounts();
   }
 };
 
-const response = await axios.put(
-  `http://localhost:5000/api/students/${editData._id}`,
+const response = await axios.put(`${baseURL}/api/students/${editData._id}`,
   payload
 );
 
@@ -7909,7 +7915,8 @@ const response = await axios.put(
 const handleExcelDownload = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/students/export-excel?pending=${activeFilter}`,
+      `${baseURL}/api/students/export-excel?pending=${activeFilter}`,
+      // `http://localhost:5000/api/students/export-excel?pending=${activeFilter}`,
       {
         responseType: "blob"
       }
@@ -7973,9 +7980,10 @@ const handleGenerateTC = async () => {
     if (selectedStudent?.generatedTC?.isGenerated) {
 
       // Fetch latest saved TC
-      const response = await axios.get(
-        `http://localhost:5000/api/students/${selectedStudent._id}`
-      );
+      const response = await axios.get(`${baseURL}/api/students/${selectedStudent._id}`);
+      // const response = await axios.get(
+      //   `http://localhost:5000/api/students/${selectedStudent._id}`
+      // );
 
       setSelectedStudent(response.data);
 
@@ -7986,7 +7994,8 @@ const handleGenerateTC = async () => {
 
     // FIRST TIME ONLY → CREATE TC TEMPLATE
     await axios.put(
-      `http://localhost:5000/api/students/generate-tc/${selectedStudent._id}`,
+     `${baseURL}/api/students/generate-tc/${selectedStudent._id}`,
+      // `http://localhost:5000/api/students/generate-tc/${selectedStudent._id}`,
       {
         tcNumber:
           selectedStudent.admissionInfo?.admissionNo || ""
@@ -7995,7 +8004,8 @@ const handleGenerateTC = async () => {
 
     // FETCH UPDATED RECORD
     const response = await axios.get(
-      `http://localhost:5000/api/students/${selectedStudent._id}`
+     `${baseURL}/api/students/${selectedStudent._id}`
+      // `http://localhost:5000/api/students/${selectedStudent._id}`
     );
 
     setSelectedStudent(response.data);

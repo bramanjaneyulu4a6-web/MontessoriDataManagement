@@ -392,6 +392,7 @@ import { Search, ArrowLeft, Eye, RefreshCw, FileSpreadsheet } from "lucide-react
 import TransferCertificate from "./TransferCertificate";
 
 const GeneratedTCList = ({ onBack }) => {
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
@@ -403,7 +404,8 @@ const GeneratedTCList = ({ onBack }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/students/generated-tc?name=${query}`
+       `${baseURL}/api/students/generated-tc?name=${query}`
+        // `http://localhost:5000/api/students/generated-tc?name=${query}`
       );
       setStudents(response.data);
     } catch (error) {

@@ -261,6 +261,7 @@ import axios from 'axios';
 import { Upload, CheckCircle, FileSpreadsheet, Loader2, X, RotateCcw } from 'lucide-react';
 
 const ExcelImport = () => {
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [previewData, setPreviewData] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [isReading, setIsReading] = useState(false);
@@ -379,7 +380,8 @@ const ExcelImport = () => {
 
     setUploading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/students/bulk-admission', {
+      const res = await axios.post(`${baseURL}/api/students/bulk-admission`, {
+      // const res = await axios.post('http://localhost:5000/api/students/bulk-admission', {
         students: validRecords
       });
       alert(`Success: ${res.data.count || validRecords.length} records processed.`);

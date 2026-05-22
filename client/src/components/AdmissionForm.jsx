@@ -1885,6 +1885,8 @@ const PreviewField = ({
 );
 
 const AdmissionForm = () => {
+
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const initialFormState = {
     name: '',
     dob: '',
@@ -1941,8 +1943,8 @@ const AdmissionForm = () => {
 
     try {
       console.log("FILES BEING SENT:", files);
-      
-      const res = await axios.post('http://localhost:5000/api/students/admission', submissionData, {
+      const res = await axios.post(`${baseURL}/api/students/admission`, submissionData, {
+      // const res = await axios.post('http://localhost:5000/api/students/admission', submissionData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       alert("Success!");
@@ -1967,7 +1969,8 @@ const AdmissionForm = () => {
   useEffect(() => {
     const searchDuplicates = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/students/search`, {
+        const res = await axios.get(`${baseURL}/api/students/search`, {
+        // const res = await axios.get(`http://localhost:5000/api/students/search`, {
           params: { name: formData.name, fatherName: formData.parentDetails.fatherName }
         });
         setDuplicates(res.data);

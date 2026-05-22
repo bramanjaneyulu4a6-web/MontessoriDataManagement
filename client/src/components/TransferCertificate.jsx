@@ -1474,6 +1474,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const TransferCertificate = ({ data, onBack, isEditable }) => {
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   if (!data) return null;
 
 
@@ -1566,7 +1567,8 @@ conduct:
   const handleFinalSave = async () => {
     try {
       await axios.put(
-  `http://localhost:5000/api/students/finalize-tc/${data._id}`,
+ `${baseURL}/api/students/finalize-tc/${data._id}`,
+        // `http://localhost:5000/api/students/finalize-tc/${data._id}`,
   tcData
 );
 

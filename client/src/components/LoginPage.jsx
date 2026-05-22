@@ -1539,18 +1539,22 @@ const LoginPage = ({ onLogin }) => {
 
   const handleSubmit = async () => {
     try {
+      const baseURL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
       let endpoint = "";
 
       if (activeTab === "login") {
-        endpoint = "http://localhost:5000/api/auth/login";
+        endpoint = `${baseURL}/api/auth/login`;
+        // endpoint = "http://localhost:5000/api/auth/login";
       }
 
       if (activeTab === "register") {
-        endpoint = "http://localhost:5000/api/auth/register";
+        endpoint = `${baseURL}/api/auth/register`;
+        // endpoint = "http://localhost:5000/api/auth/register";
       }
 
       if (activeTab === "forgot") {
-        endpoint = "http://localhost:5000/api/auth/forgot-password";
+        endpoint = `${baseURL}/api/auth/forgot-password`;
+        // endpoint = "http://localhost:5000/api/auth/forgot-password";
 
       }
 

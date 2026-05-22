@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
   const { token } = useParams();
 
   const navigate = useNavigate();
@@ -14,7 +16,8 @@ const ResetPassword = () => {
     try {
 
       await axios.post(
-        `http://localhost:5000/api/auth/reset-password/${token}`,
+       `${baseURL}/api/auth/reset-password/${token}`,
+        // `http://localhost:5000/api/auth/reset-password/${token}`,
         { password }
       );
 

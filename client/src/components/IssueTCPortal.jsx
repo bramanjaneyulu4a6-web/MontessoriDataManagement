@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const IssueTCPortal = () => {
+
+
+  const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [searchTerm, setSearchTerm] = useState('');
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
 
   const handleSearch = async () => {
-    const res = await axios.get(`http://localhost:5000/api/students/active?search=${searchTerm}`);
+   const res = await axios.get(`${baseURL}/api/students/active?search=${searchTerm}`);
+    // const res = await axios.get(`http://localhost:5000/api/students/active?search=${searchTerm}`);
     setStudents(res.data);
   };
 
   const handleIssueTC = async (id) => {
     // Logic to update status and add leaving details
-    await axios.patch(`http://localhost:5000/api/students/issue/${id}`, {
+    await axios.patch(`${baseURL}/api/students/issue/${id}`, {
+    // await axios.patch(`http://localhost:5000/api/students/issue/${id}`, {
       leavingDate: new Date(),
       reason: "Course Completed"
     });
