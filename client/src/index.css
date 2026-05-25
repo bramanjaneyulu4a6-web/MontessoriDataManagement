@@ -77,7 +77,7 @@ h1, h2 {
 }
 
 h1 {
-  color: #ffffff !important; /* Forced white to override light/dark text color targets */
+  color: black !important; /* Forced white to override light/dark text color targets */
   font-size: 40px;
   letter-spacing: -1.68px;
   margin: 32px 0;

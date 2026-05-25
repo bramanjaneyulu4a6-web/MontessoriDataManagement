@@ -1641,28 +1641,7 @@ if (onBack) {
         className="max-w-[800px] mx-auto bg-white shadow-2xl p-12 border border-gray-200 print:shadow-none print:border-none print:p-8"
       >
         {/* HEADER */}
-        {/* HEADER */}
-         <div className="text-center mb-4">
-          
-
-           <div className="text-[11px] text-gray-600 leading-snug">
-             <h1 className="text-3xl font-black text-red-600 uppercase">
-             Montessori Indus School
-           </h1>
-             Address: NH-44, Indus School Lane, Pandipadu, Kallur,
-             Kurnool, Andhra Pradesh 518002.
-             <br />
-             Near Flyover, Opposite Carbide Factory | Pin: 518002
-             <br />
-             +91 9866162900 | 08886637310
-           </div>
-
-           <h2 className="mt-2 text-xl font-bold border-y-2 border-black py-1 uppercase tracking-[0.2em]">
-             Transfer Certificate
-           </h2>
-         </div>
-
-        {/* <div className="text-center mb-4">
+        <div className="text-center mb-4">
           <h1 className="text-3xl font-black text-red-600 uppercase">
             Montessori Indus School
           </h1>
@@ -1679,7 +1658,7 @@ if (onBack) {
           <h2 className="mt-2 text-xl font-bold border-y-2 border-black py-1 uppercase tracking-[0.2em]">
             Transfer Certificate
           </h2>
-        </div> */}
+        </div>
 
         {/* TOP META */}
         <div className="flex justify-between text-sm font-bold mb-8 gap-4">
