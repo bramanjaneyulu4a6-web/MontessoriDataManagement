@@ -1204,7 +1204,7 @@ if (!isLoggedIn) {
       <aside className="w-80 bg-white border-r border-gray-200 flex flex-col shrink-0 h-full hidden md:flex">
         
         {/* BRAND LOGO AREA */}
-        <div className="bg-slate-900 border-b border-blue-900/50 px-6 py-8 flex flex-col items-center justify-center">
+        <div className="bg-blue-900 border-b border-blue-900/50 px-6 py-8 flex flex-col items-center justify-center">
 
   {/* LOGO */}
   <img
@@ -1235,7 +1235,7 @@ if (!isLoggedIn) {
                 onClick={() => setActiveTab(tab.id)}
                 className={`w-full flex items-center gap-4 px-5 py-3.5 rounded-xl font-black uppercase text-[11px] tracking-wider text-left transition-all duration-200 ${
                   isActive
-                    ? 'bg-slate-900 text-white shadow-md translate-x-1'
+                    ? 'bg-blue-900 text-white shadow-md translate-x-1'
                     : 'text-gray-400 hover:text-slate-900 hover:bg-blue-50/60'
                 }`}
               >
