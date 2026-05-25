@@ -1643,11 +1643,12 @@ if (onBack) {
         {/* HEADER */}
         {/* HEADER */}
          <div className="text-center mb-4">
-           <h1 className="text-3xl font-black text-red-600 uppercase">
-             Montessori Indus School
-           </h1>
+          
 
            <div className="text-[11px] text-gray-600 leading-snug">
+             <h1 className="text-3xl font-black text-red-600 uppercase">
+             Montessori Indus School
+           </h1>
              Address: NH-44, Indus School Lane, Pandipadu, Kallur,
              Kurnool, Andhra Pradesh 518002.
              <br />
